@@ -1,0 +1,5 @@
+<div class="alert alert-primary alert-dismissible" *ngIf="messageService.messages.length" role="alert">
+    <h4 class="alert-heading">Message Heading</h4>
+    <button type="button" class="btn-close" (click)="messageService.clear()" aria-label="Close"></button>
+    <div class="mb-0" *ngFor='let message of messageService.messages'> {{message}} </div>
+</div>

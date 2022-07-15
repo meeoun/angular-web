@@ -1,0 +1,122 @@
+<h1>Order Details</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      <form *ngIf="order" role="form">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-4">
+              <label class="control-label">Signal Code</label>
+              <input type="text" class="form-control" value="{{order.signalCode}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">TL Num</label>
+              <input type="text" class="form-control" value="{{order.tlNum}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">Amount</label>
+              <input type="text" class="form-control" value="{{order.amt}}" disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <label class="control-label">Media Status Code</label>
+              <input type="text" class="form-control" value="{{order.mediaStatusCode}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">Priority</label>
+              <input type="text" class="form-control" value="{{order.priority}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">Advice Code</label>
+              <input type="text" class="form-control" value="{{order.adviceCode}}" disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <label class="control-label">NSN</label>
+              <input type="text" class="form-control" value="{{order.nsn}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">UIC</label>
+              <input type="text" class="form-control" value="{{order.uic}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">RTG ID</label>
+              <input type="text" class="form-control" value="{{order.rtgId}}" disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <label class="control-label">SMIC</label>
+              <input type="text" class="form-control" value="{{order.smic}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">Julian Date</label>
+              <input type="text" class="form-control" value="{{order.julianDate}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">Qty</label>
+              <input type="text" class="form-control" value="{{order.qty}}" disabled>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-sm-4">
+              <label class="control-label">Fund Code</label>
+              <input type="text" class="form-control" value="{{order.fundCode}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">Qty of Issue</label>
+              <input type="text" class="form-control" value="{{order.qtyOfIssue}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">FY Abbr</label>
+              <input type="text" class="form-control" value="{{order.fyAbbr}}" disabled>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <label class="control-label">Doc Number</label>
+              <input type="text" class="form-control" value="{{order?.docNum}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">Doc ID</label>
+              <input type="text" class="form-control" value="{{order?.docId}}" disabled>
+            </div>
+            <div class="col-sm-4">
+              <label class="control-label">Cog</label>
+              <input type="text" class="form-control" value="{{order?.cog}}" disabled>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <label class="control-label">File </label> <a style="margin-left: 10px;" routerLink="/files/{{order?.fileId}}">Go To File</a>
+              <input type="text" class="form-control" value="{{order.fileId}}" disabled>
+            </div>
+            <div class="col-sm-6">
+              <label class="control-label">ID</label>
+              <input type="text" class="form-control" value="{{order.id}}" disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <label class="control-label">Messages </label>
+              <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="5" disabled>{{orderMessages()}}</textarea>
+            </div>
+          </div>
+
+        </div>
+
+
+      </form>
+    </div>
+
+  </div>
+</div>
+<div class="mt-4">
+<app-order-list *ngIf=order [id]=order.fileId></app-order-list>
+</div>

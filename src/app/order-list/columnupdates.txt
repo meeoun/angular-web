@@ -1,0 +1,5 @@
+add list price column
+delta -> difference between  tl price & list price
+
+50% or more is yellow
+80% or more is red

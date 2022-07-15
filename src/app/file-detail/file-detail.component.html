@@ -1,0 +1,91 @@
+<div *ngIf=getUserName()>
+
+<h1>File Details</h1>
+
+<div *ngIf="!file" class="d-flex justify-content-around">
+<div class="spinner-border" style="width: 6rem; height: 6rem" role="status"></div>
+</div>
+
+<div *ngIf="file" class="container">
+  <div class="row">
+
+    <div class="col-sm-9">
+      <form role="form">
+
+        <div class="form-group">
+
+
+          <div class="form-group row mt-3">
+            <div class="col-sm-2">
+              <label class="control-label">File Name</label>
+              </div>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{file.filename}}" disabled>
+            </div>
+          </div>
+
+
+          <div class="form-group row mt-3">
+            <div class="col-sm-2">
+              <label class="control-label">Status</label>
+            </div>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{file.uploadStatus}}" disabled>
+            </div>
+          </div>
+
+
+          <div class="form-group row mt-3">
+            <div class="col-sm-2">
+              <label class="control-label">Uploaded By</label>
+            </div>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{file.uploadedBy}}" disabled>
+            </div>
+          </div>
+
+
+          <div class="form-group row mt-3">
+            <div class="col-sm-2">
+              <label class="control-label">Upload Date</label>
+            </div>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{fixDate(file.uploadDate)}}" disabled>
+            </div>
+          </div>
+
+
+          <div class="form-group row mt-3">
+            <div class="col-sm-2">
+              <label class="control-label">TL #</label>
+            </div>
+
+              <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{tlNum}}" disabled>
+              </div>
+          </div>
+
+          <div class="form-group row mt-3">
+            <div class="col-sm-2">
+              <label class="col-form-label">UIC</label>
+            </div>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" value="{{uic}}" disabled>
+            </div>
+          </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<h1 class="text-center mt-xl-5">Orders in File</h1>
+<div *ngIf="file" class="mt-4">
+  <app-order-list [id]=file.id (tlNumEvent)="addTL($event)" (uicEvent)="addUic($event)"></app-order-list>
+</div>
+</div>
+
+<div *ngIf=!getUserName()>
+  <app-login></app-login>
+</div>

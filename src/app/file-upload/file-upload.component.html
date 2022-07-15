@@ -1,0 +1,38 @@
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">Upload File</h5>
+
+  <input type="file" class="file-input"
+         (change)="onFileSelected($event)" #fileUpload>
+
+  <div class="file-upload">
+
+
+
+    <button mat-mini-fab color="primary" class="upload-btn align-content-start"
+            (click)="fileUpload.click()">
+      <mat-icon>attach_file</mat-icon>
+
+    </button>
+    <div class="float-end">
+    {{fileName || "No file uploaded yet."}}
+    </div>
+  </div>
+
+  <div class="progress mt-lg-3">
+
+    <mat-progress-bar class="progress-bar" mode="determinate"
+                      [value]="uploadProgress" *ngIf="uploadProgress">
+
+    </mat-progress-bar>
+
+    <mat-icon class="cancel-upload" (click)="cancelUpload()"
+              *ngIf="uploadProgress">delete_forever</mat-icon>
+
+  </div>
+  </div>
+
+
+
+</div>

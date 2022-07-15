@@ -1,0 +1,41 @@
+<div *ngIf=getUserName() class="container">
+<h1>Uploaded Files</h1>
+<app-file-upload [user]="getUserName()" (fileEvent)="addFile($event)">
+</app-file-upload>
+
+<div *ngIf="loading" class="d-flex justify-content-around">
+  <div class="spinner-border" style="width: 6rem; height: 6rem" role="status"></div>
+</div>
+  <button class="btn-primary mt-5" (click)="getFiles()">Refresh Table</button>
+<app-excel-export fileName="files.xlsx" element="table" sheetName="files" class="float-end mt-5"></app-excel-export>
+<table class='table table-hover' *ngIf="files" id="table">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Uploaded By</th>
+            <th>Uploaded Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="clickable"
+            *ngFor="let file of files | paginate: { itemsPerPage: 10, currentPage: page }"
+            [class.text-danger] ="file.uploadStatus == UploadStatus.Failed"
+            [class.text-warning]="file.uploadStatus == UploadStatus.Processing">
+            <td> <a routerLink="/files/{{file.id}}">{{file.filename}} </a></td>
+            <td>{{ file.uploadedBy }}</td>
+            <td>{{ fixDate(file.uploadDate) }}</td>
+            <td>{{ file.uploadStatus }}</td>
+          <td> <button class="btn-danger" (click)="deleteFile(file.id)">Delete File</button> </td>
+        </tr>
+    </tbody>
+</table>
+
+<pagination-controls *ngIf="files" (pageChange)="page = $event" style="text-align: center"></pagination-controls>
+</div>
+<div *ngIf=!getUserName()>
+  <app-login></app-login>
+</div>
+
+
+

@@ -1,0 +1,16 @@
+{
+  "/orders-api/*": {
+    "target": "https://ivw7x30thj.execute-api.us-gov-west-1.amazonaws.com",
+    "secure": true,
+    "changeOrigin": true,
+    "loglevel": "debug",
+    "pathRewrite": { "^/orders-api": "" }
+  },
+  "/files-api/*": {
+    "target": "https://4yezb3pos0.execute-api.us-gov-west-1.amazonaws.com",
+    "secure": true,
+    "changeOrigin": true,
+    "loglevel": "debug",
+    "pathRewrite": { "^/files-api": "" }
+  }
+}
