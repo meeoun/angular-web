@@ -1,4 +1,4 @@
-<div *ngIf=getUserName() class="container">
+<div class="container">
 <h1>Uploaded Files</h1>
 <app-file-upload [user]="getUserName()" (fileEvent)="addFile($event)">
 </app-file-upload>
