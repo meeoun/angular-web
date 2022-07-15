@@ -3,8 +3,8 @@ import {OAuthService, AuthConfig} from "angular-oauth2-oidc";
 
 export const authConfig: AuthConfig = {
   issuer: 'https://dev-20674828.okta.com/oauth2/default',
-  redirectUri: 'http://loadbalancer-423515447.us-gov-west-1.elb.amazonaws.com',
-  clientId: '0oa3vk0owqrnL84a45d7',
+  redirectUri: 'http://10.10.20.55',
+  clientId: '0oa5stj187nBARJz95d7',
 
 }
 
