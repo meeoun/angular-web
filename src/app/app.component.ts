@@ -3,8 +3,8 @@ import {OAuthService, AuthConfig} from "angular-oauth2-oidc";
 
 export const authConfig: AuthConfig = {
   issuer: 'https://dev-20674828.okta.com/oauth2/default',
-  redirectUri: 'http://10.10.20.55',
-  clientId: '0oa5stj187nBARJz95d7',
+  redirectUri: 'http://mldemo.com',
+  clientId: '0oa5sucjnlEASHtsM5d7',
 
 }
 
